@@ -9,6 +9,7 @@
     <Compile Include="Program.fs" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="Argu" Version="6.1.1" />
     <PackageReference Include="Markdig" Version="0.27.0" />
     <PackageReference Include="Photino.NET" Version="2.1.11" />
   </ItemGroup>

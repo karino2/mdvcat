@@ -5,6 +5,19 @@ open System.Text.Json
 open System.Reflection
 open System.IO
 open Markdig
+open Argu
+
+type Arguments =
+    | [<AltCommandLine("-d")>] DisableHtml
+    | [<MainCommand; ExactlyOnce; Last>] Path of path:string
+
+with
+    interface IArgParserTemplate with
+        member arg.Usage =
+            match arg with
+            | DisableHtml -> "Disable HTML parsing (for unknown source md)."
+            | Path path -> "Markdown path."
+
 
 type Message = {Type: string; Body: string}
 
@@ -61,16 +74,25 @@ let launchBrowser (mdhtml : string)  =
 
 [<EntryPoint>]
 let main argv =
-    if argv.Length <> 1 then
-        printfn "Usage: mdvcat <filepath>"
-        1
-    else
-        let path = argv.[0]
-        let pipeline = MarkdownPipelineBuilder().Build()
+    let parser = ArgumentParser.Create<Arguments>(programName = "guash")
+    try
+        let results = parser.Parse argv
+
+        let disableHtml = results.Contains DisableHtml
+        let path = results.GetResult Path
+
+        let pipeline = if disableHtml then
+                            MarkdownPipelineBuilder().DisableHtml().Build()
+                        else
+                            MarkdownPipelineBuilder().Build()
+
         let md = File.ReadAllText path
 
         let html = Markdig.Markdown.ToHtml(md, pipeline)
         
         launchBrowser html
-        // printfn "deb %s" html
         0 // return an integer exit code
+    with
+        | :? ArguParseException as ex ->
+        printfn "%s" ex.Message
+        1
