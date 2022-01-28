@@ -74,7 +74,7 @@ let launchBrowser (mdhtml : string)  =
 
 [<EntryPoint>]
 let main argv =
-    let parser = ArgumentParser.Create<Arguments>(programName = "guash")
+    let parser = ArgumentParser.Create<Arguments>(programName = "mdvcat")
     try
         let results = parser.Parse argv
 
