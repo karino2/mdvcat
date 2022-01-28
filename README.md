@@ -6,6 +6,18 @@ Markdown viewer from command line using photino.
 
 ![screenshot.png](https://github.com/karino2/mdvcat/raw/main/screenshot/screenshot.png)
 
+## Install
+
+For Mac, there is binary drop in [Releases](https://github.com/karino2/mdvcat/releases)
+
+Also, there is homebrew tap for mdvcat.
+You can install follwoing way.
+
+```
+$ brew tap karino2/tap
+$ brew install karino2/tap/mdvcat
+```
+
 ## Usage
 
 ```
