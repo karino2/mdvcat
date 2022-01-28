@@ -4,6 +4,7 @@ Markdown viewer from command line using photino.
 
 ## Screenshot
 
+![screenshot.png](https://github.com/karino2/mdvcat/raw/main/screenshot/screenshot.png)
 
 ## Usage
 
