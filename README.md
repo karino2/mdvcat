@@ -18,6 +18,21 @@ $ brew tap karino2/tap
 $ brew install karino2/tap/mdvcat
 ```
 
+### Troubleshooting
+
+If you see the error saying
+
+```
+A fatal error occurred. The required library libhostfxr.dylib could not be found.
+```
+
+You need to set DOTNET_ROOT like following (in .zshrc or .bashrc, etc.)
+
+```
+$ export DOTNET_ROOT="$(brew --prefix)/opt/dotnet/libexec"
+```
+
+
 ## Usage
 
 ```
