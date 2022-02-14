@@ -50,7 +50,7 @@ OPTIONS:
 
 ## Open source libraries
 
-Guash use following libraries.
+mdvcat uses following libraries.
 
 - [Markdig](https://github.com/xoofx/markdig)
 - [Photino.NET](https://www.nuget.org/packages/Photino.NET/)
