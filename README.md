@@ -8,7 +8,7 @@ Markdown viewer from command line using photino.
 
 ## Install
 
-For Mac, there is binary drop in [Releases](https://github.com/karino2/mdvcat/releases)
+For Mac, there is binary drop in [Releases](https://github.com/karino2/mdvcat/releases). (You also need to install dotnet core runtime 6.0)
 
 Also, there is homebrew tap for mdvcat.
 You can install follwoing way.
