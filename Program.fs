@@ -81,10 +81,12 @@ let main argv =
         let disableHtml = results.Contains DisableHtml
         let path = results.GetResult Path
 
+        let pipelineBuilder = MarkdownPipelineBuilder().UseTaskLists().UsePipeTables()
+
         let pipeline = if disableHtml then
-                            MarkdownPipelineBuilder().DisableHtml().Build()
+                            pipelineBuilder.DisableHtml().Build()
                         else
-                            MarkdownPipelineBuilder().Build()
+                            pipelineBuilder.Build()
 
         let md = File.ReadAllText path
 

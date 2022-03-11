@@ -3,3 +3,5 @@ bin/
 .ionide/
 obj/
 releases
+
+.fake
